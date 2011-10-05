@@ -1,0 +1,48 @@
+#My first game - Number Guessing
+import random
+import time
+
+guessAmt = 0 #guessAmt stands for amount of guesses
+print('Hi there new player! What is your name?')
+pName = input() #pName stands for player's name
+number = random.randint(1, 20)
+print()
+print('It is nice to meet you ' + pName + '. I have a million dollar question for you.')
+time.sleep(3)
+print()
+print('My favorite number is between 1 and 20, guess it and you will win a million dollars!')
+
+while guessAmt < 5:
+    print('Go ahead, try to guess it.')
+    guess = input()
+    guess = int(guess)
+    guessAmt += 1
+    if guess < number:
+        print('...')
+        time.sleep(4)
+        print('Your guess is a little too low.')
+        if guessAmt == 5:
+            break
+        else:
+            print('Please try again.')
+            print()
+    if guess > number:
+        print('...')
+        time.sleep(4)
+        print('Your guess is a little too high.')
+        if guessAmt == 5:
+            break
+        else:
+            print('Please try again')
+            print()
+    if guess == number:
+        break
+
+if guess == number:
+    guessAmt = str(guessAmt)
+    print('Great job ' + pName + '! You guessed my number in ' + guessAmt + ' guesses! You win a million dollars!')
+
+if guess != number:
+    number = str(number)
+    print('Sorry ' + pName + '. You guessed wrong. My favorite number is ' + number + '.')
+
