@@ -1,0 +1,42 @@
+#Shipping Calculator for a Product
+import time
+
+print('Hello.')
+time.sleep(2)
+print('My name is Lexi and I am a shipping calculator designed to assist you.')
+time.sleep(2)
+print('Please follow my instructions and your shipping totals will be displayed immediately.')
+time.sleep(2)
+print()
+print('Enter the price of your desired product.')
+price = input()
+print('Now please, enter the weight of your product in ounces.')
+weight = input()
+print('Enter the total quantity of products for purchase.')
+numProducts = input()
+
+print('Please wait while I calculate your purchase totals.')
+time.sleep(3)
+
+price = int(price)
+weight = int(weight)
+numProducts = int(numProducts)
+
+subtotal = numProducts * price
+firstRate = 0.4                 #Stands for initial shipping charge, $0.40 for the first ounce
+addRate = (weight - 1) * 0.2    #Stands for additional shipping charge,  $0.20 per each additional ounce
+totalRate = firstRate + addRate #Stands for total shipping charge
+if totalRate <= 3.5:            #$3.50 is maximum shipping charge per product
+    shipping = totalRate * numProducts
+else:
+    shipping = 3.5 * numProducts
+total = shipping + subtotal
+
+subtotal = str(subtotal)
+shipping = str(shipping)
+total = str(total)
+print('Thank you so much for your purchase.')
+time.sleep(1)
+print('Your subtotal for this purchase is $' + subtotal + '.')
+print('Your total shipping charge for this purchase is $' + shipping + '.')
+print('And lastly, your total charge for this purchase is $' + total + '.')
